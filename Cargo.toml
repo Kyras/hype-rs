@@ -1,14 +1,5 @@
-[package]
-name = "hype-rs"
-version = "0.1.0"
-authors = ["Martin Lacko <mrt.lacko@gmail.com>"]
-edition = "2018"
-license-file = "LICENSE.md"
-description = "Hyperdimensional computation library"
-homepage = "https://github.com/Kyras/hype-rs"
-repository = "https://github.com/Kyras/hype-rs"
-readme = "README.md"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
+[workspace]
+members = [
+    "hype-rs",
+    "hype-derive"
+]
