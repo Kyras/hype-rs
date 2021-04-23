@@ -1,5 +1,6 @@
 [workspace]
 members = [
     "hype-rs",
-    "hype-derive"
+    "hype-rs/src/feature_vector/derive",
+    "hype-tests"
 ]

@@ -14,3 +14,4 @@ readme = "README.md"
 
 [dependencies]
 smallvec = "1.5.1"
+hype-derive = { path = "src/feature_vector/derive" }

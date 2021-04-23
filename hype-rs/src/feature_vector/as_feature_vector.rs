@@ -6,6 +6,17 @@ pub trait AsFeatureVector {
     fn as_feature_vector(&self) -> FeatureVector;
 }
 
+impl AsFeatureVector for char {
+    #[inline]
+    fn feature_size(&self) -> usize {
+        1
+    }
+
+    fn as_feature_vector(&self) -> FeatureVector {
+        (*self as u32).as_feature_vector()
+    }
+}
+
 macro_rules! impl_as_feature_for_integral_types {
     ( $( $type:ty ),+ ) => {
     $(
