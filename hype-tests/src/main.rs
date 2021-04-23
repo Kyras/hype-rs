@@ -1,8 +1,9 @@
 use hype_rs::prelude::*;
 
 #[derive(AsFeatureVector)]
-#[discriminant_type = "u32"]
+#[discriminant_type(u32)]
 enum Value {
+    #[discriminant_value = 1]
     Foo {
         a: i32,
         b: f32,

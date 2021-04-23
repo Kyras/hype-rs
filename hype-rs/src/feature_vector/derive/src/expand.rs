@@ -9,11 +9,6 @@ pub(crate) fn derive(input: &DeriveInput) -> Result<TokenStream> {
         Data::Union(_data) => Err(Error::new_spanned(input, "Unions are not supported"))
     }?;
 
-    let attrs = &input.attrs;
-    for attr in attrs {
-        println!("{:?}", attr.path.segments.first().unwrap().ident)
-    }
-
     let dummy_const = format_ident!("__DERIVE_AsFeatureVector_FOR_{}", input.ident);
     Ok(quote! {
         #[allow(non_upper_case_globals, unused_attributes, unused_qualifications)]
