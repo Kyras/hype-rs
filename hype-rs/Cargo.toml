@@ -12,6 +12,9 @@ readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+derive = []
+
 [dependencies]
 smallvec = "1.5.1"
-hype-derive = { path = "src/feature_vector/derive" }
+hype-derive = { path = "../hype-derive" }
