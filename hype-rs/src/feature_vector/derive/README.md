@@ -1,4 +1,0 @@
-Hype-Derive RS
-=======
-
-TBA
