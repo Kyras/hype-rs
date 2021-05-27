@@ -1,3 +1,5 @@
+#![feature(async_closure)]
+
 use hype_rs::prelude::*;
 
 #[derive(AsFeatureVector)]
@@ -10,11 +12,28 @@ pub enum MyType<T> {
     Unit,
 }
 
-fn main() {
-    let x = MyType::Struct { x: 1.0, det: 2 };
-    println!("{:?}", x.as_feature_vector());
-    let x = MyType::Tuple(1.0, 2.0, 'c');
-    println!("{:?}", x.as_feature_vector());
-    let x = MyType::<char>::Unit;
-    println!("{:?}", x.as_feature_vector());
+#[tokio::main]
+async fn main() {
+    let x = async || {
+        println!("Calling first closure");
+        tokio::time::sleep(std::time::Duration::new(2, 0)).await;
+    };
+
+    let y = || async {
+        println!("Calling second closure");
+        tokio::time::sleep(std::time::Duration::new(2, 0)).await;
+    };
+
+    let x1 = x();
+    println!("Created first closure");
+    x1.await;
+    println!("First closure done");
+
+
+    println!("------------------");
+
+    let y1 = y();
+    println!("Created second closure");
+    y1.await;
+    println!("Second closure done");
 }
